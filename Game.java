@@ -59,7 +59,7 @@ public class Game {
     int computer = 1 + (int) (Math.random() * values.length);
     String hmac = calculateHMAC((values[computer - 1]), key);
     System.out.println();
-    System.out.println("HMAC: \n" + hmac); // hmac выводит
+    System.out.println("HMAC: \n" + hmac); 
     game.startGame();
     game.Inputvalue();
     
@@ -94,23 +94,18 @@ public class Game {
 static String getAlphaNumericString()
 {
 int n = 16;
-      // length is bounded by 256 Character
       byte[] array = new byte[256];
       new Random().nextBytes(array);
 
       String randomString
           = new String(array, Charset.forName("UTF-8"));
 
-      // Create a StringBuffer to store the result
       StringBuffer r = new StringBuffer();
 
-      // remove all spacial char
       String  AlphaNumericString
           = randomString
                 .replaceAll("[^A-Za-z0-9]", "");
 
-      // Append first 20 alphanumeric characters
-      // from the generated random String into the result
       for (int k = 0; k < AlphaNumericString.length(); k++) {
 
           if (Character.isLetter(AlphaNumericString.charAt(k))
@@ -123,7 +118,7 @@ int n = 16;
           }
       }
 
-      // return the resultant string
+
       return r.toString();
 }
 
@@ -179,48 +174,45 @@ int n = 16;
       return toHexString(mac.doFinal( moveComputer.getBytes()));
   }
   private void table() {
-            // Вывод линии
+          
             System.out.print("+");
             printDashes(100);
             System.out.println("+");
         
-            // Вывод заголовков таблицы
             System.out.printf("|  %8s  |  %12s  |  %12s  |  %12s  |  %12s  |  %15s  |\n",
                     "   ", "Rock", "Paper", "Scissors", "lizard", "Spock");
         
-            // Вывод линии
             System.out.print("|");
             printDashes(100);
             System.out.println("|");
         
-            // Вывод значений
             System.out.printf("|  %8s  |  %12s  |  %12s  |  %12s  |  %12s  |  %15s  |\n",
                     "Rock", "Tie", "Rock win", "Rock win",  "lizard win",  "Spock win");
-            // Вывод линии
+   
             System.out.print("|");
             printDashes(100);
             System.out.println("|");           
            System.out.printf("|  %8s  |  %12s  |  %12s  |  %12s  |  %12s  |  %15s  |\n",
                     "Paper", "Rock win", "Tie", "Paper win", "Paper win", "Spock win"); 
-            // Вывод линии
+ 
             System.out.print("|");
             printDashes(100);
             System.out.println("|");                            
             System.out.printf("|  %8s  |  %12s  |  %12s  |  %12s  |  %12s  |  %15s  |\n",
                     "Scissors", "Rock win", "Paper win", "Tie", "Scissors win", "Scissors win");    
-            // Вывод линии
+    
             System.out.print("+");
             printDashes(100);
             System.out.println("+");    
             System.out.printf("|  %8s  |  %12s  |  %12s  |  %12s  |  %12s  |  %15s  |\n",
                     "lizard", "lizard win", "Paper win", "Scissors win", "Tie" ,"lizard win" );    
-            // Вывод линии
+     
             System.out.print("+");
             printDashes(100);
             System.out.println("+");   
             System.out.printf("|  %8s  |  %12s  |  %12s  |  %12s  |  %12s  |  %15s  |\n",
                       "Spock", "Spock win", "Spock win", "Scissors win", "lizard win"  , "Tie" );    
-            // Вывод линии
+ 
             System.out.print("+");
             printDashes(100);
             System.out.println("+");      
@@ -233,16 +225,13 @@ int n = 16;
     int ties = Draw;
     double percentageWon = (wins + ((double) ties) / 2) / (wins + losses + ties);          
 
-    // Вывод линии
     System.out.print("+");
     printDashes(68);
     System.out.println("+");
 
-    // Вывод заголовков таблицы
     System.out.printf("|  %6s  |  %6s  |  %6s  |  %12s  |  %14s  |\n",
             "WINS", "LOSSES", "TIES", "GAMES PLAYED", "PERCENTAGE WON");
 
-    // Вывод линии
     System.out.print("|");
     printDashes(10);
     System.out.print("+");
@@ -255,11 +244,9 @@ int n = 16;
     printDashes(18);
     System.out.println("|");
 
-    // Вывод значений
     System.out.printf("|  %6d  |  %6d  |  %6d  |  %12d  |  %13.2f%%  |\n",
             wins, losses, ties, (wins + losses + ties), percentageWon * 100);
 
-    // Вывод линии
     System.out.print("+");
     printDashes(68);
     System.out.println("+");
